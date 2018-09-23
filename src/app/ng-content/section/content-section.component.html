@@ -1,0 +1,16 @@
+<div>
+    <h1>ng content</h1>
+    <app-content-child #section_parent [title]="title" ></app-content-child>
+    <div style="background-color: #039be5">
+        <ng-content></ng-content>
+    </div>
+    <div style="background-color: #73e543">
+        <ng-content select="div"></ng-content>
+    </div>
+    <div style="background-color: #27e5e0">
+        <ng-content select=".content-class"></ng-content>
+    </div>
+    <div style="background-color: #e54a62">
+        <ng-content select="[name=test]"></ng-content>
+    </div>
+</div>

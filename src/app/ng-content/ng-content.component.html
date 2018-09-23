@@ -1,3 +1,11 @@
-<p>
-  ng-content works!
-</p>
+<app-content-section>
+    <div name="test">我是第一号位置 div[name="test"]</div>
+    <div>我是第二号位置 div</div>
+    <p>哇是第三号位置 p</p>
+    <label>我是第四号位置 label</label>
+    <div>我是第五号位置 div</div>
+    <p #six class="content-class">我是第六号位置 p [class="content-class]</p>
+    <p name="test">我是第七号位置 p [name="test"]</p>
+    <app-content-child #section_child_0 [title]="title_0"></app-content-child>
+    <app-content-child #section_child_1 [title]="title_1"></app-content-child>
+</app-content-section>
