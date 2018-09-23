@@ -1,3 +1,40 @@
-<p>
-  ng-template works!
-</p>
+<h1>ng-template</h1>
+<br>
+
+<!-- 通过ngIf结构型指令显示ng-template的内容 -->
+<div class="lessons-list" *ngIf="condition else elseTemplate">
+    判断条件为真
+</div>
+<ng-template #elseTemplate>
+    <div>判断条件为假</div>
+</ng-template>
+<br>
+
+<!-- 通过ngTemplateOutlet -->
+<ng-template #inputTemplate>
+    <input>
+</ng-template>
+<ng-container *ngTemplateOutlet="inputTemplate"></ng-container>
+<br>
+<!-- ng-template带参数的情况 -->
+<!-- let-param 取的是绑定对象myContext的$implicit字段的指，let-param相和let-param="$implicit"是等价的， -->
+<!-- let-name="name" 取的是绑定对象myContext里面name字段对应的值-->
+<ng-template #inputTemplateWithContent let-param let-name="name">
+    <div>{{param}} - {{name}}</div>
+</ng-template>
+<ng-container *ngTemplateOutlet="inputTemplateWithContent; context: myContext"></ng-container>
+<br>
+
+<!-- 我们定义一个组件，把ng-template的内容作为参数传递进去 -->
+<ng-template #paramTemplate>
+    <div>我是参数</div>
+</ng-template>
+<app-template-input [inputTemplate]="paramTemplate"></app-template-input>
+
+<!-- 通过ViewContainerRef和TemplateRef直接把ng-template对应的元素加入到DOM结构中(这种情况应该用的比较少) -->
+<ng-template #tpl>
+    <div>
+        Hello, ng-template!
+    </div>
+</ng-template>
+<br>
